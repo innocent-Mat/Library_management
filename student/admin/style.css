@@ -1,0 +1,132 @@
+/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(128, 128, 128, 0.600); /* Semi-transparent background */
+    z-index: 99;
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 2em;
+    background: url('logo.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Circular logo */
+    user-select: none;
+}
+
+/* Navigation Styles */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Spans the full width */
+}
+
+/* Center Links */
+.center-links {
+    display: flex;
+    justify-content: center;
+    flex: 1; /* Takes up available space */
+    gap: 30px; /* Space between links */
+}
+
+.center-links a {
+    position: relative;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.center-links a:hover {
+    color: #45a049; /* Hover effect */
+}
+
+.center-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.center-links a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* Right Links */
+.right-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px; /* Space between links */
+}
+
+.right-links a {
+    position: relative;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.right-links .btnLogin-popup {
+    width: 130px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.right-links .btnLogin-popup:hover {
+    background: #fff;
+    color: #fff;
+}
+
+

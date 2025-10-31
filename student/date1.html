@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>clock</title>
+        <style>
+            @font-face {
+                font-family: "Hack";
+                src: url("fonts/Hack-Bold.ttf");
+            }
+            .digital-clock
+            {
+                background-color:  #000;
+                color: #FFF;
+                display: flex;
+                border-radius: 2rem;
+                user-select: none;
+                padding: 0 2rem;
+                border: 0.5rem solid #2d2d2d;
+            }
+            .week
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 3rem;
+                color: #2d2d2d;
+                font-family: "Hack";
+                font-weight: bold;
+            }
+            .week .active
+            {
+                color: #FFF;
+            }
+            .time
+            {
+                font-family: "FX_LED";
+            }
+            .hour, .min, .dot
+            {
+                display: inline-block;
+            }
+            .min 
+            {
+                display: math;
+            }
+            .invsible
+            {
+                visibility: hidden;
+            }
+        </style>
+        <script>
+            const $= (selector)=> 
+            {
+                return document.querySelector(selector);
+
+            }
+            const hour = $('.hour');
+            const dot = $('.dot');
+            const min = $('.min');
+            const week = $('.week');
+
+            let showDot = true;
+
+            function update()
+            {
+                showDot = !showDot;
+                const now =  new Date();
+
+                if (showDot) {
+                    dot.classList.add('invsible');
+                }
+                else
+                {
+                    dot.classList.remove('invsible');
+
+                }
+
+                hour.textContent = String(now.getHours())
+                .padStart(2, '0');
+
+                
+                min.textContent = String(now.getMinutes())
+                .padStart(2, '0');
+
+                Array
+                    .from(week.children)
+                    .forEach(
+                        (ele) => {
+                            ele.classList.remove('active');
+                        }
+                    );
+                week
+                    .children[now.getDay()]
+                    .classList
+                    .add('active');
+            }
+            setInterval(update, 500);
+
+        </script>
+    </head>
+    <body>
+        <div class="digital-clock">
+            <div class="week">
+                <div class="active">SUN</div>
+                <div>MON</div>
+                <div>TUE</div>
+                <div>WED</div>
+                <div>THU</div>
+                <div>FRI</div>
+                <div>SAT</div>
+            </div>
+            <div class="time">
+                <div class="hour">12</div>
+                <div class="dot">:</div>
+                <div class="min">05</div>
+            </div>
+
+        </div>
+    </body>
+
+</html>
